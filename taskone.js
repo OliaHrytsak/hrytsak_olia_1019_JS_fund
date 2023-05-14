@@ -78,5 +78,33 @@ let daysInAMonth = 30;
 let secondsInAMonth = secondsInADay * daysInAMonth;
 alert(secondsInAMonth);
 
-//Ускладнене завдання
+//Ускладнене завдання!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let numberOfSeat = prompt("Enter your seat number, pleese!");
+
+//Перевіряємо правильность введення місця
+if (numberOfSeat > 54){
+  numberOfSeat = prompt("Enter correct seat number, pleese!");
+  alert("Your seat number is " + numberOfSeat + "!");
+ }
+
+//Визначаємо номер купе
+let coupeNumber = Math.ceil(numberOfSeat / 4);
+
+//Перевіряємо чи бічне чи ні і виводимо результат
+if (numberOfSeat > 36){
+   let sidePosition = true;
+  alert("side seat: " + sidePosition);
+} else {
+  let sidePosition = false;
+  alert("side seat: " + sidePosition);
+}  
+
+//Перевіряємо верхнє чи нижнє місце і виводимо купе і тип місця
+  if (numberOfSeat % 2 == 0) {
+  let seatType = "top seat";
+    alert("Your cupe number is " + coupeNumber + " and your seat type is " + seatType + "!");  
+} else {
+  let seatType = "bottom seat";
+   alert("Your cupe number is " + coupeNumber + " and your seat type is " + seatType + "!");  
+}
 
