@@ -19,11 +19,11 @@ alert(daughterName);
 
 //task-4
 let career = {
-    position: "Accounter",
-    experience: 10,
-    courses: true,
-    salary: undefined,
-    assistant: null
+  position: "Accounter",
+  experience: 10,
+  courses: true,
+  salary: undefined,
+  assistant: null
 };
 
 console.log(career);
@@ -79,32 +79,24 @@ let secondsInAMonth = secondsInADay * daysInAMonth;
 alert(secondsInAMonth);
 
 //Ускладнене завдання!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-let numberOfSeat = prompt("Enter your seat number, pleese!");
+let numberOfSeat = +prompt("Enter your seat number, pleese!");
 
 //Перевіряємо правильность введення місця
-if (numberOfSeat > 54){
+if (numberOfSeat > 54 || numberOfSeat <= 0 || typeof numberOfSeat == 'string') {
   numberOfSeat = prompt("Enter correct seat number, pleese!");
   alert("Your seat number is " + numberOfSeat + "!");
- }
-
-//Визначаємо номер купе
-let coupeNumber = Math.ceil(numberOfSeat / 4);
-
-//Перевіряємо чи бічне чи ні і виводимо результат
-if (numberOfSeat > 36){
-   let sidePosition = true;
-  alert("side seat: " + sidePosition);
-} else {
-  let sidePosition = false;
-  alert("side seat: " + sidePosition);
-}  
-
-//Перевіряємо верхнє чи нижнє місце і виводимо купе і тип місця
-  if (numberOfSeat % 2 == 0) {
-  let seatType = "top seat";
-    alert("Your cupe number is " + coupeNumber + " and your seat type is " + seatType + "!");  
-} else {
-  let seatType = "bottom seat";
-   alert("Your cupe number is " + coupeNumber + " and your seat type is " + seatType + "!");  
 }
 
+//Перевіряємо чи бічне чи ні
+let sidePosition = (numberOfSeat > 36) ? true : false;
+
+//Перевіряємо верхнє чи нижнє місце і виводимо купе і тип місця
+let seatType = (numberOfSeat % 2 == 0) ? "top seat" : "bottom seat";
+
+//Визначаємо номер купе і виводимо результат
+if (numberOfSeat <= 36) {
+  let coupeNumber = Math.ceil(numberOfSeat / 4);
+  alert("Your cupe number is " + coupeNumber + "," + " side seat: " + sidePosition + " and your seat type is " + seatType + "!");
+} else {
+  alert("You have a side seat in the carriage " + " and your seat type is " + seatType + "!");
+} 
