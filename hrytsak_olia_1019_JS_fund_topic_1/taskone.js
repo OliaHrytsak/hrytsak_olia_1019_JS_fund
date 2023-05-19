@@ -62,7 +62,7 @@ let userLogin = prompt("Enter your login!");
 let userEemail = prompt("Enter your email!");
 let userPassword = prompt("Enter your password!");
 
-alert("Dear User, your email is " + userEemail + " your password is " + userPassword + " and your login is " + userLogin + "!");
+alert (`Dear user, your email is ${userEemail} your password is  ${userPassword} and your login is ${userLogin} !`);
 
 //task-8
 let secondsInAMinute = 60;
