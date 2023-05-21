@@ -38,10 +38,31 @@ if (isAdult >= 18) {
 let conclusion = (isAdult >= 18) ? alert("You are Adult!") : alert("You are too young!");
 
 //task-4
-// let arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5]
-// let data =
 
-//     console.log(arr)
+
+function searchMostRepeatedNumber(arr) {
+    const arrOfNumber = {};
+    let mostRepeatedNumber;
+    let maxRepeated = 0;
+
+    for (const number of arr) {
+        arrOfNumber[number] = (arrOfNumber[number] || 0) + 1;
+        if (arrOfNumber[number] > maxRepeated) {
+            maxRepeated = arrOfNumber[number];
+            mostRepeatedNumber = number;
+        }
+    }
+
+    const newArr = arr.filter(number => number !== mostRepeatedNumber);
+
+    return { number: mostRepeatedNumber, newArr };
+}
+
+const arr = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
+const result = searchMostRepeatedNumber(arr);
+
+const data = console.log(result.number);
+const newArr = console.log(result.newArr);
 
 //task-5
 
@@ -106,4 +127,17 @@ function findUnique(arr) {
 const arr1 = [2, 3, 4, 6, 7];
 console.log(findUnique(arr1));
 const arr2 = [1, 1, 2, 2, 4, 5];
-console.log(findUnique(arr2)); 
+console.log(findUnique(arr2));
+
+// укладнене
+
+function create(password) {
+    return function(inputPassword) {
+      inputPassword = prompt("Enter password, please!")
+      return inputPassword === password;
+    };
+  }
+  const tom = create("pass_for_Tom");
+  
+  console.log(tom("pass_for_Tom")); // поверне true
+  console.log(tom("pass_for_tom")); // поверне false
