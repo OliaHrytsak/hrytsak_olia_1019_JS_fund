@@ -50,14 +50,14 @@
 // function randArray(k) {
 
 //   let newArr = [];
-//   for (let i = 0; i < k; i++) {
+//   for (let i = 0; i < 5; i++) {
 //     newArr.push(Math.floor(Math.random() * 500));
 //   }
 //   return newArr;
 
 // }
 
-// console.log(randArray(5));
+// console.log(randArray());
 
 //task-5!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -98,23 +98,24 @@ function greetUpToTime() {
 
   console.log(timeString);
 }
+greetUpToTime();
 
 // те ж завдання з використанням конструкції Switch
 
-// const currentTime = new Date();
-//  const timeString = currentTime.toLocaleTimeString('uk')
-// switch (true) {
-// case (timeString >= '23:00:00' || timeString < '05:00:00'):
-//     console.log("Доброї ночі");
-//     break;
-//   case (timeString >= '05:00:00' && timeString < '11:00:00'):
-//     console.log("Доброго ранку");
-//      break;
-//   case (timeString >= '11:00:00' && timeString < '17:00:00'):
-//     console.log("Доброго дня");
-//     break;
-//   case (timeString > '17:00:00' && timeString < '23:00:00'):
-//     console.log("Доброго вечора");
-// }
+const currentTime = new Date();
+ const timeString = currentTime.toLocaleTimeString('uk')
+switch (true) {
+case (timeString >= '23:00:00' || timeString < '05:00:00'):
+    console.log("Доброї ночі");
+    break;
+  case (timeString >= '05:00:00' && timeString < '11:00:00'):
+    console.log("Доброго ранку");
+     break;
+  case (timeString >= '11:00:00' && timeString < '17:00:00'):
+    console.log("Доброго дня");
+    break;
+  case (timeString > '17:00:00' && timeString < '23:00:00'):
+    console.log("Доброго вечора");
+}
 
-// console.log(timeString);
+console.log(timeString);
