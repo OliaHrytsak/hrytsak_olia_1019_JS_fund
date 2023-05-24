@@ -65,6 +65,7 @@ function transformArr(arr) {
   const newArr = arr.flat();
   const stringArr = [];
   const numberArr = [];
+  
 
   for (let i = 0; i < newArr.length; i++) {
     if (typeof newArr[i] === 'string') {
@@ -73,8 +74,8 @@ function transformArr(arr) {
       numberArr.push(newArr[i]);
     }
   }
-
-  return { stringArr, numberArr };
+  const concatArray = [stringArr].concat([numberArr]);
+  return concatArray;
 }
 
 const startArr = transformArr([5, "Limit", 12, "a", "3", 99, 2, [2, 4, 3, "33", "a", "text"], "strong", "brown"]);
