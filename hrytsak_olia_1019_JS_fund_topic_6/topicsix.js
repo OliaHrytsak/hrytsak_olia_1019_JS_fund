@@ -95,6 +95,103 @@ button.addEventListener("click", function (event) {
   });
 
   outBlock.textContent = formDataArray.join(", ");
+  
 });
 
 //task-5
+/*
+1) вибрати всі теги із класом circle
+2) перебрати кожен елемент, і вибрати його data-anim значення
+3) вибране значення додати як клас за допомогою classList до цього елемента.
+4) перевірити чи застосувались анімації
+
+- вибірка елемента із DOM дерева
+- вибрати клас елемента (https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+- вибрати із data атрибута значення і занести те значення в клас елемента для якого ми вибрали поточний атрибут
+*/
+
+let circles = document.querySelectorAll(".circle");
+console.log(circles);
+
+const items = document.querySelectorAll(".items");
+for (let i = 0; i < items.length; i++) {
+  const item = items[i];
+  const circle = item.getElementsByClassName("circle")[0];
+  const dataAnim = circle.getAttribute("data-anim");
+  console.log(dataAnim);
+  
+  items[i].classList.add(dataAnim);
+}
+
+//task-6
+
+ // Реалізувати логіку підрахунку ціни товару по його варіаціях(шаблон наведений тут, при кліку на колір змінювати ціну товару).
+// Придумати ще 2 варіації, від яких буде залежати ціна товару.
+
+const colors = document.querySelectorAll('.color');
+const outprice = document.getElementById('outprice');
+const photos = document.querySelectorAll('.shoe');
+const sizes = document.querySelectorAll('.size');
+const deliveryTypes = document.querySelectorAll('.delivery-type');
+
+//Підрахунок ціни, залежно від кольору товару
+
+colors.forEach(function(color, index) {
+  color.addEventListener('click', function() {
+    var price = color.getAttribute('data-price');
+    outprice.textContent = price;
+    var photoSrc = photos[index].getAttribute('src');
+    photos.forEach(function(photo) {
+      photo.classList.remove('show');
+    });
+    photos[index].classList.add('show');
+  });
+});
+
+//Підрахунок ціни, залежно від розміру товару
+sizes.forEach(function(size) {
+  size.addEventListener('click', function() {
+    var price = size.getAttribute('data-price');
+    outprice.textContent = price;
+  });
+});
+//Підрахунок ціни, залежно від способу доставки товару
+deliveryTypes.forEach(function(deliveryType) {
+  deliveryType.addEventListener('click', function() {
+    var deliveryPrice = deliveryType.getAttribute('data-price');
+    var currentPrice = outprice.textContent;
+    var totalPrice = parseFloat(currentPrice) + parseFloat(deliveryPrice);
+    outprice.textContent = totalPrice.toFixed(2);
+  });
+});
+
+
+//task-7 Ускладнене. 
+
+var currentDate = new Date();
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+var monthIndex = currentDate.getMonth();
+var monthName = months[monthIndex];
+var day = currentDate.getDate();
+var dateElement = document.getElementById("date");
+dateElement.textContent = (monthName + " " + day);
+dateElement.style.backgroundColor = "black"
+dateElement.style.color = "yellow"
+dateElement.style.fontSize = "25px"
+dateElement.style.fontFamily = "Orbitron";
+dateElement.style.width = "250px";
+
+const clockContainer = document.querySelector('.big__clock');
+clockContainer.style.backgroundColor = "black";
+clockContainer.style.color = "yellow";
+clockContainer.style.fontSize = "45px";
+clockContainer.style.fontFamily = "Orbitron";
+clockContainer.style.width = "250px";
+
+
+function updateClock() {
+    clockContainer.innerText = new Date().toLocaleTimeString('uk');
+}
+
+setInterval(updateClock, 1000);
