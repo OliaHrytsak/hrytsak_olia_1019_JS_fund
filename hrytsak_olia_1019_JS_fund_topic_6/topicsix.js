@@ -138,9 +138,9 @@ const deliveryTypes = document.querySelectorAll('.delivery-type');
 
 colors.forEach(function(color, index) {
   color.addEventListener('click', function() {
-    var price = color.getAttribute('data-price');
+    let price = color.getAttribute('data-price');
     outprice.textContent = price;
-    var photoSrc = photos[index].getAttribute('src');
+    let photoSrc = photos[index].getAttribute('src');
     photos.forEach(function(photo) {
       photo.classList.remove('show');
     });
@@ -151,16 +151,16 @@ colors.forEach(function(color, index) {
 //Підрахунок ціни, залежно від розміру товару
 sizes.forEach(function(size) {
   size.addEventListener('click', function() {
-    var price = size.getAttribute('data-price');
+    let price = size.getAttribute('data-price');
     outprice.textContent = price;
   });
 });
 //Підрахунок ціни, залежно від способу доставки товару
 deliveryTypes.forEach(function(deliveryType) {
   deliveryType.addEventListener('click', function() {
-    var deliveryPrice = deliveryType.getAttribute('data-price');
-    var currentPrice = outprice.textContent;
-    var totalPrice = parseFloat(currentPrice) + parseFloat(deliveryPrice);
+    let deliveryPrice = deliveryType.getAttribute('data-price');
+    let currentPrice = outprice.textContent;
+    let totalPrice = parseFloat(currentPrice) + parseFloat(deliveryPrice);
     outprice.textContent = totalPrice.toFixed(2);
   });
 });
@@ -168,13 +168,13 @@ deliveryTypes.forEach(function(deliveryType) {
 
 //task-7 Ускладнене. 
 
-var currentDate = new Date();
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const currentDate = new Date();
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-var monthIndex = currentDate.getMonth();
-var monthName = months[monthIndex];
-var day = currentDate.getDate();
-var dateElement = document.getElementById("date");
+const monthIndex = currentDate.getMonth();
+const monthName = months[monthIndex];
+const day = currentDate.getDate();
+const dateElement = document.getElementById("date");
 dateElement.textContent = (monthName + " " + day);
 dateElement.style.backgroundColor = "black"
 dateElement.style.color = "yellow"
