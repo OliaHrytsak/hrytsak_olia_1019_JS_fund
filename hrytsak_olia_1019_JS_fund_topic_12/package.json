@@ -1,0 +1,16 @@
+{
+  "name": "hrytsak_olia_1019_js_fund_topic_12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "topictvelve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "upper-case": "^2.0.2"
+  }
+}
